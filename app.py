@@ -75,11 +75,14 @@ curve_inputs = np.column_stack([
     np.full_like(pct_range, temp_c),
     np.full_like(pct_range, battery_health)
 ])
-remaining_times = model.predict(curve_inputs)
-elapsed_times = est_minutes - remaining_times
+
+remaining_times = np.minimum.accumulate(model.predict(curve_inputs))
+elapsed_times = np.maximum(0.0, est_minutes - remaining_times)
 
 chart_df = pd.DataFrame({"Battery Percentage (%)": pct_range}, index=np.round(elapsed_times, 1))
 st.line_chart(chart_df)
+
+
 
 with st.expander("🧠 Model Architecture & Validation Metrics"):
     st.write(f"**Algorithm:** Random Forest Regressor (`n_estimators=120`) trained on 4,000 physics-informed 5000mAh Li-Ion charging cycles.")
