@@ -1,5 +1,8 @@
 # 🔋 AI Smart Battery Management System (BMS) & Charging Predictor
 
+### 🌐 [Launch Live Interactive BMS & ML Predictor App →](https://ai-smart-bms-charging-predictor-ixudssaqt27j42yvsxsudw.streamlit.app/)
+
+
 An end-to-end **Embedded Hardware + Machine Learning** system designed to simulate intelligent Li-Ion battery charging, thermal throttling protection, and real-time time-to-full prediction for a 5000mAh smartphone battery.
 
 ---
